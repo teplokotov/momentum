@@ -16,7 +16,7 @@ body {
   font-size: 16px;
   color: #fff;
   text-align: center;
-  background: url("../assets/img/bg.jpg") center/cover, rgba(0, 0, 0, 0.5);
+  background: url("") center/cover, rgba(0, 0, 0, 0.5);   /* url("../assets/img/bg.jpg") */
   background-blend-mode: multiply;
   transition: background-image 1s ease-in-out;
 }
@@ -124,7 +124,7 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   row-gap: 5px;
-  width: 180px;
+  width: 210px;
   min-height: 180px;  
   text-align: left;
 }
@@ -146,7 +146,7 @@ body {
 }
 
 .city {
-  width: 170px;
+  width: 200px;
   height: 34px;
   padding: 5px;
   font-size: 20px;

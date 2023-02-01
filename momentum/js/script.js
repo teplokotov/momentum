@@ -6,7 +6,13 @@ const InputName = document.querySelector('.name');
 let randomNum;
 const slideNext = document.querySelector('.slide-next');
 const slidePrev = document.querySelector('.slide-prev');
-
+const weatherIcon = document.querySelector('.weather-icon');
+const temperature = document.querySelector('.temperature');
+const weatherDescription = document.querySelector('.weather-description');
+const wind = document.querySelector('.wind');
+const humidity = document.querySelector('.humidity');
+const InputCity = document.querySelector('.city');
+const weatherError = document.querySelector('.weather-error');
 
 function showTime() {
     const date = new Date();
@@ -55,6 +61,7 @@ function showGreeting() {
 
 function setLocalStorage() {
     localStorage.setItem('name', InputName.value);
+    localStorage.setItem('city', InputCity.value);
 }
 window.addEventListener('beforeunload', setLocalStorage);
 
@@ -63,6 +70,13 @@ function getLocalStorage() {
     if (localStorage.getItem('name')) {
         InputName.value = localStorage.getItem('name');
     }
+    InputCity.placeholder = '[Введите город]';
+    if (localStorage.getItem('city')) {
+        InputCity.value = localStorage.getItem('city');
+    } else {
+        InputCity.value = 'Минск';
+    }
+    getWeather();
 }
 window.addEventListener('load', getLocalStorage);
 
@@ -75,7 +89,6 @@ getRandomNum(1,20);
 
 function setBg() {
     let timeOfDay = getTimeOfDay();
-    console.log(randomNum);
     let bgNum = String(randomNum).padStart(2, "0");
     const img = new Image();
     img.src = "https://raw.githubusercontent.com/teplokotov/stage1-tasks/assets/images/" + timeOfDay + "/" + bgNum + ".jpg"; 
@@ -104,3 +117,32 @@ function getSlidePrev() {
     setBg();
 }
 slidePrev.addEventListener('click', getSlidePrev);
+
+async function getWeather() {
+    setLocalStorage();
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${InputCity.value}&lang=ru&appid=4c6d3f4acac16b60de8cd757d423e42d&units=metric`;
+    const res = await fetch(url);
+    const data = await res.json();
+    if (data.cod == 200) {
+        weatherIcon.className = 'weather-icon owf';
+        weatherError.innerText = '';
+        weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+        temperature.textContent = `${Math.floor(data.main.temp)}°C`;
+        weatherDescription.textContent = data.weather[0].description;
+        wind.textContent = `Скорость ветра: ${Math.floor(data.wind.speed)} м/c`;
+        humidity.textContent = `Влажность: ${Math.floor(data.main.humidity)}%`;
+    } else {
+        if (data.cod == 404) {
+            weatherError.innerText = `Ошибка 404:\nгород "${InputCity.value}" не найден!`;
+        }
+        if (data.cod == 400) {
+            weatherError.innerText = `Ошибка 400:\nгород не задан!`;
+        }
+        weatherIcon.className = 'weather-icon owf';
+        temperature.textContent = '';
+        weatherDescription.textContent = '';
+        wind.textContent = '';
+        humidity.textContent = '';
+    }
+}
+InputCity.addEventListener('change', getWeather);
