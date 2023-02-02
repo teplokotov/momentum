@@ -46,10 +46,11 @@ body {
 .play-item {
   position: relative;
   padding: 5px;
-  padding-left: 20px;
+  padding-left: 30px;
   list-style: none;
   opacity: .8;
   cursor: pointer;
+  width: fit-content;
   transition: .3s;
 }
 
@@ -58,15 +59,20 @@ body {
 }
 
 .play-item::before {
-  content: "\2713";  
+  /* content: "\2713"; */
+  content: " ";
+  background-image: url(../assets/svg/play.svg);
+  background-size: contain;
+  width: 20px;
+  height: 20px;
   position: absolute;
   left: 0;
-  top: 2px;
-  font-weight: 900;
+  top: 4px;
 }
 
 .item-active::before {
   color: #C5B358;
+  background-image: url(../assets/svg/pause.svg);
 }
 
 .player-icon,
