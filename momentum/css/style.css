@@ -31,12 +31,18 @@ body {
   padding: 20px;
 }
 
+.player {
+  position: relative;
+  z-index: 1;
+}
+
 .player-controls {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 120px;
-  margin-bottom: 28px;
+  /* width: 120px; */
+  width: 100%;
+  /* margin-bottom: 28px; */
 }
 
 .play-list {
@@ -68,6 +74,7 @@ body {
   position: absolute;
   left: 0;
   top: 4px;
+  transition: .3s;
 }
 
 .item-active::before {
@@ -122,6 +129,95 @@ body {
 
 .play-next {
   background-image: url("../assets/svg/play-next.svg");
+}
+.player-title {
+  height: 20px;
+  line-height: 20px;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.player-timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.volume-slider {
+  -webkit-appearance: none !important;
+  background-color: rgba(255, 255, 255, 0.5);
+  height:8px;
+  border-radius: 5px;
+  width: 180px;
+  cursor: pointer;
+}
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  background:rgb(255, 255, 255);
+  height:15px;
+  width:15px;
+  border-radius: 50%;
+}
+
+.timeline-container {
+  position: relative;
+  height: 18px;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.timeline-progress {
+  bottom: 0;
+  top: 0;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+.player-timeline-timer {
+  display: flex;
+  opacity: 0.8;
+}
+
+.track-timer:after {
+  content: ' / ';
+  white-space: pre;
+}
+
+.player-volume {
+  height: 30px;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.volume-button {
+  background-image: url("../assets/svg/volume.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  opacity: 0.8;
+  transition: all 0.3s ease 0s;
+}
+
+.volume-button:hover {
+  opacity: 1;
+}
+
+.mute {
+  background-image: url("../assets/svg/volume-block.svg");
 }
 
 .weather {

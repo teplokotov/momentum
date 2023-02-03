@@ -1,5 +1,4 @@
 import playList from './playList.js';
-//console.log(playList);
 
 const body = document.querySelector('body');
 const time = document.querySelector('.time');
@@ -22,10 +21,19 @@ const changeQuote = document.querySelector('.change-quote');
 const playBtn = document.querySelector('.play');
 const playPrevBtn = document.querySelector('.play-prev');
 const playNextBtn = document.querySelector('.play-next');
+let volume = 0.5;
 const audio = new Audio();
+audio.volume = volume;
 let isPlay = false;
 let playNum = 0;
 const playListContainer = document.querySelector('.play-list');
+const volumeBtn = document.querySelector('.volume-button');
+const playerTitle = document.querySelector('.player-title');
+const duration = document.querySelector('.duration');
+const volumeSlider = document.querySelector('.volume-slider');
+const timelineContainer = document.querySelector('.timeline-container');
+const timelineProgress = document.querySelector('.timeline-progress');
+const trackTimer = document.querySelector('.track-timer');
 
 function showTime() {
     const date = new Date();
@@ -171,14 +179,13 @@ async function getQuotes() {
 getQuotes();
 changeQuote.addEventListener('click', getQuotes);
 
+audio.src = playList[playNum].src;
 function playAudio() {
-    //console.log(playNum);
-    audio.src = playList[playNum].src;
-    //audio.currentTime = 0;
     for (let item of playListContainer.children){
         item.classList.remove('item-active');
     }
     playListContainer.children[playNum].classList.add('item-active');
+    playerTitle.textContent = playList[playNum].title;
     if (isPlay == false) {
         audio.play();
         isPlay = true;
@@ -192,12 +199,11 @@ function playAudio() {
 }
 playBtn.addEventListener('click', playAudio);
 audio.addEventListener('ended', playNext);
+
 playListContainer.addEventListener('click', (e) => {
-    //console.log(e.target);
     let k = 0;
     for (let item of playListContainer.children){
         if (item == e.target){
-            //console.log(k);
             playNum = k;
             if (isPlay == true && item.classList.contains('item-active')) {
                 audio.pause();
@@ -205,6 +211,7 @@ playListContainer.addEventListener('click', (e) => {
                 playBtn.classList.remove('pause');
                 playListContainer.children[playNum].classList.remove('item-active');
             } else {
+                audio.src = playList[playNum].src;
                 isPlay = false;
                 playAudio();
             }
@@ -219,6 +226,7 @@ function playNext() {
     } else {
         playNum = 0;
     }
+    audio.src = playList[playNum].src;
     playBtn.classList.add('pause');
     isPlay = false;
     playAudio();
@@ -231,6 +239,7 @@ function playPrev() {
     } else {
         playNum = playList.length-1;
     }
+    audio.src = playList[playNum].src;
     playBtn.classList.add('pause');
     isPlay = false;
     playAudio();
@@ -241,8 +250,59 @@ function makePlaylist() {
     for(let i = 0; i < playList.length; i++) {
         const li = document.createElement('li');
         li.classList.add('play-item');
-        li.textContent = playList[i]['title'];
+        li.textContent = playList[i]['duration'] + " — " + playList[i]['title'];
         playListContainer.append(li);
     }
+    playerTitle.textContent = playList[playNum].title;
 }
 makePlaylist();
+
+function MakeMute() {
+    if (volume != 0) {
+        if (audio.muted == 1) {
+            audio.muted = 0;
+            volumeSlider.value = volume;
+        } else {
+            audio.muted = 1;
+            volumeSlider.value = 0;
+        }
+    }
+    volumeBtn.classList.toggle('mute');
+}
+volumeBtn.addEventListener('click', MakeMute);
+
+function changeVolume() {
+    audio.volume = volumeSlider.value;
+    volume = volumeSlider.value;
+    if (volume == 0) {
+        volumeBtn.classList.add('mute');
+    } else {
+        volumeBtn.classList.remove('mute');
+    }
+}
+volumeSlider.addEventListener('input', changeVolume);
+
+setInterval(() => {
+    timelineProgress.style.width = audio.currentTime / audio.duration * 100 + "%";
+    trackTimer.textContent = getTimeCode(audio.currentTime);
+}, 500);
+
+function getTimeCode(NumTime) {
+    let sec = parseInt(NumTime);
+    let min = parseInt(sec/60);
+    sec = sec - min * 60;
+    let h = parseInt(min/60);
+    min = min - h * 60;
+    let secFull = String(sec % 60).padStart(2,0);
+    if (h == 0) {
+        return min + ':' + secFull;
+    } else {
+        return String(h).padStart(2, 0) + ':' + min + ':' + secFull;
+    }
+}
+
+timelineContainer.addEventListener('click', e => {
+    audio.currentTime = e.offsetX / parseInt(window.getComputedStyle(timelineContainer).width) * audio.duration;
+});
+
+audio.addEventListener('loadeddata', () => {duration.textContent = getTimeCode(audio.duration);});
