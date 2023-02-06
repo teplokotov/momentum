@@ -1,134 +1,270 @@
-[
-    {
-      "text": "О храбрости больше всего говорят трусы, а про благородство — прохвосты.",
-      "author": "А. Толстой"
-    },
-    {
-      "text": "Люди как люди. Любят деньги, но ведь это всегда было.",
-      "author": "М. Булгаков"
-    },
-    {
-      "text": "Жизнь задыхается без цели.",
-      "author": "Ф. Достоевский"
-    },
-    {
-        "text": "Неужели вы еще не знаете, что в семнадцать и семьдесят лет любят одинаково?",
-        "author": "И. Бунин"
-    },
-    {
-        "text": "О законы! Премудрость ваша часто бывает только в вашем слоге!",
-        "author": "А. Радищев"
-    },
-    {
-        "text": "Разруха не в клозетах, а в головах.",
-        "author": "М. Булгаков"
-    },
-    {
-        "text": "Бесполезное это дело: дураков учить все равно что мертвых лечить.",
-        "author": "Н. Лесков"
-    },
-    {
-        "text": "Там хорошо, где нас нет: в прошлом нас уже нет, и оно кажется прекрасным.",
-        "author": "А. Чехов"
-    },
-    {
-        "text": "Надо любить жизнь больше, чем смысл жизни.",
-        "author": "Ф. Достоевский"
-    },
-    {
-        "text": "Человек он умный, но чтоб умно поступать — одного ума мало.",
-        "author": "Ф. Достоевский"
-    },
-    {
-        "text": "Злых людей нет на свете, есть только люди несчастливые.",
-        "author": "М. Булгаков"
-    },
-    {
-        "text": "Авторитет и дружба – вода и огонь, вещи разнородные и враждебные; равенство – условие дружбы.",
-        "author": "В. Белинский"
-    },
-    {
-        "text": "Есть женские души, которые вечно томятся какой-то печальной жаждой любви и которые от этого самого никогда и никого не любят.",
-        "author": "И. Бунин"
-    },
-    {
-        "text": "Надо быть ясным умственно, чистым нравственно и опрятным физически.",
-        "author": "А. Чехов"
-    },
-    {
-        "text": "Нет силы более могучей, чем знание; человек, вооружённый знанием, — непобедим.",
-        "author": "М. Горький"
-    },
-    {
-        "text": "Нет уз святее товарищества!",
-        "author": "Н. Гоголь"
-    },
-    {
-        "text": "Истинная сила человека не в порывах, а в нерушимом спокойствии.",
-        "author": "Л. Толстой"
-    },
-    {
-        "text": "Вера — роскошь, которая дорого народу обходится.",
-        "author": "Н. Лесков"
-    },
-    {
-        "text": "Величайшее богатство народа — его язык.",
-        "author": "М. Шолохов"
-    },
-    {
-        "text": "Зачем же гнаться по следам того, что уже окончено.",
-        "author": "М. Булгаков"
-    },
-    {
-        "text": "Шутить с мечтой опасно: разбитая мечта может составить несчастье жизни; гоняясь за мечтой, можно прозевать жизнь или из безумного воодушевления принести её в жертву.",
-        "author": "А. Герцен"
-    },
-    {
-        "text": "Гибнет в потоке времени только то, что лишено крепкого зерна жизни и что, следовательно, не стоит жизни.",
-        "author": "В. Белинский"
-    },
-    {
-        "text": "Источник силы или бессилия общества — духовный уровень жизни, а уже потом — уровень промышленности.",
-        "author": "А. Солженицын"
-    },
-    {
-        "text": "Любить — значит жить жизнью того, кого любишь.",
-        "author": "Л. Толстой"
-    },
-    {
-        "text": "Исключения, вы знаете, только подтверждают правило.",
-        "author": "И. Тургенев"
-    },
-    {
-        "text": "За все реформы мы берёмся как похуже — так и тут. Только губят дело и отбивают у людей последнюю веру в обещания власти.",
-        "author": "А. Солженицын"
-    },
-    {
-        "text": "Блаженство наше в отношении детей наших зависит много от нас самих.",
-        "author": "А. Радищев"
-    },
-    {
-        "text": "На то и молодость дана, чтобы быть кипучей, активной, жизнеутверждающей.",
-        "author": "М. Шолохов"
-    },
-    {
-        "text": "К Богу приходят не экскурсии с гидом, а одинокие путешественники.",
-        "author": "В. Набоков"
-    },
-    {
-        "text": "Наши недостатки растут на одной почве с нашими достоинствами, и трудно вырвать одни, пощадив другие.",
-        "author": "И. Тургенев"
-    },
-    {
-        "text": "Образование ума не прибавляет.",
-        "author": "А. Солженицын"
-    },
-    {
-        "text": "Неужели с того, что вы меня богатее, то у вас и чувств больше?",
-        "author": "М. Булгаков"
-    },
-    {
-        "text": "Только амбициозные ничтожества и прекраснодушные посредственности выставляют на обозрение свои черновики.",
-        "author": "В. Набоков"
-    }
-]
+{
+    "ru": [
+        {
+            "text": "О храбрости больше всего говорят трусы, а про благородство — прохвосты.",
+            "author": "А. Толстой"
+        },
+        {
+            "text": "Люди как люди. Любят деньги, но ведь это всегда было.",
+            "author": "М. Булгаков"
+        },
+        {
+            "text": "Жизнь задыхается без цели.",
+            "author": "Ф. Достоевский"
+        },
+        {
+            "text": "Неужели вы еще не знаете, что в семнадцать и семьдесят лет любят одинаково?",
+            "author": "И. Бунин"
+        },
+        {
+            "text": "О законы! Премудрость ваша часто бывает только в вашем слоге!",
+            "author": "А. Радищев"
+        },
+        {
+            "text": "Разруха не в клозетах, а в головах.",
+            "author": "М. Булгаков"
+        },
+        {
+            "text": "Бесполезное это дело: дураков учить все равно что мертвых лечить.",
+            "author": "Н. Лесков"
+        },
+        {
+            "text": "Там хорошо, где нас нет: в прошлом нас уже нет, и оно кажется прекрасным.",
+            "author": "А. Чехов"
+        },
+        {
+            "text": "Надо любить жизнь больше, чем смысл жизни.",
+            "author": "Ф. Достоевский"
+        },
+        {
+            "text": "Человек он умный, но чтоб умно поступать — одного ума мало.",
+            "author": "Ф. Достоевский"
+        },
+        {
+            "text": "Злых людей нет на свете, есть только люди несчастливые.",
+            "author": "М. Булгаков"
+        },
+        {
+            "text": "Авторитет и дружба – вода и огонь, вещи разнородные и враждебные; равенство – условие дружбы.",
+            "author": "В. Белинский"
+        },
+        {
+            "text": "Есть женские души, которые вечно томятся какой-то печальной жаждой любви и которые от этого самого никогда и никого не любят.",
+            "author": "И. Бунин"
+        },
+        {
+            "text": "Надо быть ясным умственно, чистым нравственно и опрятным физически.",
+            "author": "А. Чехов"
+        },
+        {
+            "text": "Нет силы более могучей, чем знание; человек, вооружённый знанием, — непобедим.",
+            "author": "М. Горький"
+        },
+        {
+            "text": "Нет уз святее товарищества!",
+            "author": "Н. Гоголь"
+        },
+        {
+            "text": "Истинная сила человека не в порывах, а в нерушимом спокойствии.",
+            "author": "Л. Толстой"
+        },
+        {
+            "text": "Вера — роскошь, которая дорого народу обходится.",
+            "author": "Н. Лесков"
+        },
+        {
+            "text": "Величайшее богатство народа — его язык.",
+            "author": "М. Шолохов"
+        },
+        {
+            "text": "Зачем же гнаться по следам того, что уже окончено.",
+            "author": "М. Булгаков"
+        },
+        {
+            "text": "Шутить с мечтой опасно: разбитая мечта может составить несчастье жизни; гоняясь за мечтой, можно прозевать жизнь или из безумного воодушевления принести её в жертву.",
+            "author": "А. Герцен"
+        },
+        {
+            "text": "Гибнет в потоке времени только то, что лишено крепкого зерна жизни и что, следовательно, не стоит жизни.",
+            "author": "В. Белинский"
+        },
+        {
+            "text": "Источник силы или бессилия общества — духовный уровень жизни, а уже потом — уровень промышленности.",
+            "author": "А. Солженицын"
+        },
+        {
+            "text": "Любить — значит жить жизнью того, кого любишь.",
+            "author": "Л. Толстой"
+        },
+        {
+            "text": "Исключения, вы знаете, только подтверждают правило.",
+            "author": "И. Тургенев"
+        },
+        {
+            "text": "За все реформы мы берёмся как похуже — так и тут. Только губят дело и отбивают у людей последнюю веру в обещания власти.",
+            "author": "А. Солженицын"
+        },
+        {
+            "text": "Блаженство наше в отношении детей наших зависит много от нас самих.",
+            "author": "А. Радищев"
+        },
+        {
+            "text": "На то и молодость дана, чтобы быть кипучей, активной, жизнеутверждающей.",
+            "author": "М. Шолохов"
+        },
+        {
+            "text": "К Богу приходят не экскурсии с гидом, а одинокие путешественники.",
+            "author": "В. Набоков"
+        },
+        {
+            "text": "Наши недостатки растут на одной почве с нашими достоинствами, и трудно вырвать одни, пощадив другие.",
+            "author": "И. Тургенев"
+        },
+        {
+            "text": "Образование ума не прибавляет.",
+            "author": "А. Солженицын"
+        },
+        {
+            "text": "Неужели с того, что вы меня богатее, то у вас и чувств больше?",
+            "author": "М. Булгаков"
+        },
+        {
+            "text": "Только амбициозные ничтожества и прекраснодушные посредственности выставляют на обозрение свои черновики.",
+            "author": "В. Набоков"
+        }
+    ],
+    "en": [
+        {
+        "text": "Cowards talk about bravery most of all, and scoundrels talk about nobility.",
+        "author": "A. Tolstoy"
+        },
+        {
+        "text": "People are like people. They love money, but it has always been.",
+        "author": "M. Bulgakov"
+        },
+        {
+        "text": "Life suffocates without purpose.",
+        "author": "F. Dostoevsky"
+        },
+        {
+        "text": "Don't you know yet that at seventeen and seventy they love equally?",
+        "author": "I. Bunin"
+        },
+        {
+        "text": "Oh laws! Your wisdom is often only in your syllable!",
+        "author": "A. Radishchev"
+        },
+        {
+        "text": "The devastation is not in the closets, but in the heads.",
+        "author": "M. Bulgakov"
+        },
+        {
+        "text": "This is a useless thing: teaching fools is like treating the dead.",
+        "author": "N. Leskov"
+        },
+        {
+        "text": "It's good where we are not: we are no longer in the past, and it seems beautiful.",
+        "author": "A. Chekhov"
+        },
+        {
+        "text": "One must love life more than the meaning of life.",
+        "author": "F. Dostoevsky"
+        },
+        {
+        "text": "He is a smart man, but to act smart - one mind is not enough.",
+        "author": "F. Dostoevsky"
+        },
+        {
+        "text": "There are no evil people in the world, there are only unhappy people.",
+        "author": "M. Bulgakov"
+        },
+        {
+        "text": "Authority and friendship are water and fire, things are heterogeneous and hostile; equality is a condition of friendship.",
+        "author": "V. Belinsky"
+        },
+        {
+        "text": "There are women's souls who are forever languishing with some kind of sad thirst for love and who from this very never love anyone.",
+        "author": "I. Bunin"
+        },
+        {
+        "text": "One must be clear mentally, clean morally and neat physically.",
+        "author": "A. Chekhov"
+        },
+        {
+        "text": "There is no force more powerful than knowledge; a man armed with knowledge is invincible.",
+        "author": "M. Gorky"
+        },
+        {
+        "text": "There is no bond holier than comradeship!",
+        "author": "N. Gogol"
+        },
+        {
+        "text": "The true strength of a person is not in impulses, but in unbreakable calm.",
+        "author": "L. Tolstoy"
+        },
+        {
+        "text": "Faith is a luxury that costs people dearly.",
+        "author": "N. Leskov"
+        },
+        {
+        "text": "The greatest wealth of the people is its language.",
+        "author": "M. Sholokhov"
+        },
+        {
+        "text": "Why chase after the tracks of what is already over.",
+        "author": "M. Bulgakov"
+        },
+        {
+        "text": "It is dangerous to joke with a dream: a broken dream can be a misfortune of life; chasing a dream, you can miss life or sacrifice it out of insane enthusiasm.",
+        "author": "A. Herzen"
+        },
+        {
+        "text": "Perishes in the flow of time only that which is deprived of a strong grain of life and that, therefore, is not worth living.",
+        "author": "V. Belinsky"
+        },
+        {
+        "text": "The source of strength or impotence of society is the spiritual standard of living, and only then — the level of industry.",
+        "author": "A. Solzhenitsyn"
+        },
+        {
+        "text": "To love means to live the life of the one you love.",
+        "author": "L. Tolstoy"
+        },
+        {
+        "text": "Exceptions, you know, only confirm the rule.",
+        "author": "I. Turgenev"
+        },
+        {
+        "text": "We undertake all the reforms as worse - and here. They only ruin the cause and discourage people from having the last faith in the promises of the authorities.",
+        "author": "A. Solzhenitsyn"
+        },
+        {
+        "text": "Our bliss in relation to our children depends a lot on ourselves.",
+        "author": "A. Radishchev"
+        },
+        {
+        "text": "That's why youth is given to be ebullient, active, life-affirming.",
+        "author": "M. Sholokhov"
+        },
+        {
+        "text": "It's not guided tours that come to God, but lonely travelers.",
+        "author": "V. Nabokov"
+        },
+        {
+        "text": "Our shortcomings grow on the same soil with our virtues, and it is difficult to pull out some, sparing others.",
+        "author": "I. Turgenev"
+        },
+        {
+        "text": "Education does not add to the mind.",
+        "author": "A. Solzhenitsyn"
+        },
+        {
+        "text": "Is it really because you are richer than me that you have more feelings?",
+        "author": "M. Bulgakov"
+        },
+        {
+        "text": "Only ambitious nobodies and lovable mediocrity put their drafts on display.",
+        "author": "V. Nabokov"
+        }
+    ]
+}

@@ -10,7 +10,7 @@
 }
 
 body {
-  min-width: 480px;
+  min-width: 320px;
   min-height: 100vh;
   font-family: 'Arial', sans-serif;
   font-size: 16px;
@@ -33,7 +33,7 @@ body {
 
 .player {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .player-controls {
@@ -84,7 +84,9 @@ body {
 
 .player-icon,
 .slider-icon,
-.change-quote {
+.change-quote,
+.settings-icon,
+.links-icon {
   width: 32px;
   height: 32px;
   background-size: 32px 32px;
@@ -100,16 +102,35 @@ body {
 
 .player-icon:hover,
 .slider-icon:hover,
-.change-quote:hover {
+.change-quote:hover,
+.settings-icon:hover,
+.links-icon:hover {
   opacity: 1;
 }
 
 .player-icon:active,
 .slider-icon:active,
-.change-quote:active {
+.change-quote:active,
+.settings-icon:active,
+.links-icon:active {
   border: 0;
   outline: 0;  
   transform: scale(1.1);
+}
+
+.settings-icon {
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+  background-image: url("../assets/svg/gear.svg");
+}
+
+.links-icon {
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+  background-image: url("../assets/svg/links.svg");
+  margin-left: 20px;
 }
 
 .play {
@@ -276,6 +297,7 @@ body {
   height: 40vh;
   min-height: 260px;  
   padding: 20px;
+  z-index: 1;
 }
 
 .slider-icon {
@@ -344,13 +366,20 @@ body {
 
 .footer {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
   width: 100%;
   height: 30vh;
-  min-height: 160px;  
+  min-height: 160px;
   padding: 20px;
+  position: relative;
+}
+
+.footer-left{
+  width: 122px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .change-quote {
@@ -365,6 +394,161 @@ body {
 .author {
   min-height: 20px;
 }
+
+.school-link{
+  display: block;
+  width: 121px;
+  height: 45px;
+  background-image: url(../assets/svg/rss.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: 10px;
+}
+
+.author-link, .author-link:active, .author-link:visited {
+  color: #fff;
+  text-decoration: none;
+}
+.author-link:hover {
+  text-decoration: underline;
+}
+
+.dialogOfSettings {
+  min-width: 450px;
+  position: absolute;
+  bottom:  70px;
+  left: 20px;
+  color: rgb(91 91 91);
+  background-color: #D6D6D6;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.dialogOfSettings.show {
+  opacity: 1;
+  z-index: 2;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.dialogOfSettings ::-webkit-scrollbar {
+  width: 13px;
+	height: 13px;
+}
+
+.dialogOfSettings ::-webkit-scrollbar-thumb {
+  background-color: rgba(136, 136, 136, 0.8);
+  background-clip: padding-box;
+  border-radius: 7px;
+	border: 3px solid transparent;
+}
+
+.dialog-header {
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #bababa;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #999;
+}
+
+.dialog-subtitle {
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  text-align: left;
+  background-color: #bababa;
+}
+
+.area {
+  border-bottom: 1px solid #999;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.area-options {
+  display: flex;
+}
+
+.dialog-body {
+  overflow-y: auto;
+  height: 500px;
+}
+
+.radioGroup {
+	display: inline-block;
+  font-size: 0;
+}
+.radioGroupItem {
+	display: inline-block;
+}
+.radioGroup input[type=radio] {
+	display: none;
+}
+.radioGroup input[type=checkbox] {
+	display: none;
+}
+.radioGroup label {
+  border: 1px solid #999;
+  font-size: 16px;
+	display: inline-block;
+	line-height: 34px;
+	cursor: pointer;
+	border-right: none;
+	user-select: none;
+  padding: 0px 15px;
+}
+ 
+.radioGroup .radioGroupItem:first-child label {
+	border-radius: 6px 0 0 6px;
+}
+.radioGroup .radioGroupItem:last-child label {
+  border-right: 1px solid #999;
+	border-radius: 0 6px 6px 0;
+}
+
+.radioGroup input[type=radio] + label, .radioGroup input[type=checkbox] + label{
+	background: #D6D6D6;
+}
+ 
+.radioGroup input[type=radio]:checked + label, .radioGroup input[type=checkbox]:checked + label {
+	background-color: #9bcb75;
+}
+
+.radioGroup input[type=radio]:checked + label {
+  cursor: auto;
+}
+ 
+.radioGroup input[type=radio] + label:hover, .radioGroup input[type=checkbox] + label:hover {
+  background: linear-gradient(#d6d6d600, #ffffff5e);
+}
+
+.radioGroup input[type=radio]:checked + label:hover, .radioGroup input[type=checkbox]:checked + label:hover {
+  background: linear-gradient(#9bcb75, #9bcb75);
+}
+
+.close-button {
+  position: absolute;
+  right: 20px;
+  top: 5px;
+  cursor: pointer;
+  background-image: url(../assets/svg/closeBtn.svg);
+  background-size: contain;
+  width: 30px;
+  height: 30px;
+}
+
+.close-button:hover {
+  opacity: 0.6;
+}
+
 
 @media (max-width: 768px) {
   .time {
