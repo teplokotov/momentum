@@ -28,7 +28,7 @@ const playBtn = document.querySelector('.play');
 const playPrevBtn = document.querySelector('.play-prev');
 const playNextBtn = document.querySelector('.play-next');
 let volume = 0.5;
-const audio = new Audio();
+let audio = new Audio();
 audio.volume = volume;
 let isPlay = false;
 let playNum = 0;
@@ -60,6 +60,7 @@ const titleLinks = document.querySelector('.title-links');
 const titleNature = document.querySelector('.title-nature');
 const titleCats = document.querySelector('.title-cats');
 const titleCars = document.querySelector('.title-cars');
+const areaTags = document.querySelector('.area-tags');
 
 const tOn = document.querySelectorAll('.tOn');
 const tOff = document.querySelectorAll('.tOff');
@@ -72,6 +73,8 @@ let radioQuote = document.getElementsByName('radio-quote');
 let radioWeather = document.getElementsByName('radio-weather');
 let radioPlayer = document.getElementsByName('radio-player');
 let radioLinks = document.getElementsByName('radio-links');
+let radioSource = document.getElementsByName('radio-source');
+let radioTags = document.getElementsByName('radio-tag');
 
 let sLang = 'ru';
 let sTime = 'on';
@@ -81,6 +84,64 @@ let sQuote = 'on';
 let sWeather = 'on';
 let sPlayer = 'on';
 let sLinks = 'on';
+let sSource = 'github';
+let sTags = 'nature';
+
+if (localStorage.getItem('setLang')) {
+    sLang = localStorage.getItem('setLang');
+    document.getElementById('lang-' + sLang).checked = true;
+    insertTranslation();
+}
+if (localStorage.getItem('setSource')) {
+    sSource = localStorage.getItem('setSource');
+    document.getElementById('source-' + sSource).checked = true;
+    if (sSource == 'github') {
+        areaTags.style.display = 'none';
+    } else {
+        areaTags.style.display = 'flex';
+    }
+}
+if (localStorage.getItem('setTags')) {
+    sTags = localStorage.getItem('setTags');
+    document.getElementById('tag-' + sTags).checked = true;
+}
+if (localStorage.getItem('setTime')) {
+    sTime = localStorage.getItem('setTime');
+    document.getElementById('time-' + sTime).checked = true;
+    sTime == 'on' ? time.style.display = 'block' : time.style.display = 'none';
+}
+if (localStorage.getItem('setDate')) {
+    sDate = localStorage.getItem('setDate');
+    document.getElementById('date-' + sDate).checked = true;
+    sDate == 'on' ? Localedate.style.display = 'block' : Localedate.style.display = 'none';
+}
+if (localStorage.getItem('setGreeting')) {
+    sGreeting = localStorage.getItem('setGreeting');
+    document.getElementById('greeting-' + sGreeting).checked = true;
+    sGreeting == 'on' ? greetingContainer.style.display = 'flex' : greetingContainer.style.display = 'none';
+}
+if (localStorage.getItem('setQuote')) {
+    sQuote = localStorage.getItem('setQuote');
+    document.getElementById('quote-' + sQuote).checked = true;
+    sQuote == 'on' ? FooterQuote.style.display = 'block' : FooterQuote.style.display = 'none';
+}
+if (localStorage.getItem('setWeather')) {
+    sWeather = localStorage.getItem('setWeather');
+    document.getElementById('weather-' + sWeather).checked = true;
+    sWeather == 'on' ? weather.style.display = 'flex' : weather.style.display = 'none';
+}
+if (localStorage.getItem('setPlayer')) {
+    sPlayer = localStorage.getItem('setPlayer');
+    sWeather = localStorage.getItem('setWeather');
+    document.getElementById('player-' + sPlayer).checked = true;
+    sPlayer == 'on' ? player.style.display = 'block' : player.style.display = 'none';
+    sPlayer == 'off' &&  sWeather == 'on' ? header.style.justifyContent = 'end' : header.style.justifyContent = 'space-between';
+}
+if (localStorage.getItem('setLinks')) {
+    sLinks = localStorage.getItem('setLinks');
+    document.getElementById('links-' + sLinks).checked = true;
+    sLinks == 'on' ? linksBtn.style.display = 'block' : linksBtn.style.display = 'none';
+}
 
 function insertTranslation() {
     dialogHeader.textContent = lang[sLang].settings.title;
@@ -108,7 +169,7 @@ function showTime() {
     time.textContent = currentTime;
     showDate();
     showGreeting();
-    setTimeout(showTime, 1000);
+    setTimeout(showTime, 100);
 }
 showTime();
 
@@ -165,48 +226,6 @@ function getLocalStorage() {
         InputCity.value = lang[sLang].weather.city;
     }
     getWeather();
-    if (localStorage.getItem('setLang')) {
-        sLang = localStorage.getItem('setLang');
-        document.getElementById('lang-' + sLang).checked = true;
-        insertTranslation();
-    }
-    if (localStorage.getItem('setTime')) {
-        sTime = localStorage.getItem('setTime');
-        document.getElementById('time-' + sTime).checked = true;
-        sTime == 'on' ? time.style.display = 'block' : time.style.display = 'none';
-    }
-    if (localStorage.getItem('setDate')) {
-        sDate = localStorage.getItem('setDate');
-        document.getElementById('date-' + sDate).checked = true;
-        sDate == 'on' ? Localedate.style.display = 'block' : Localedate.style.display = 'none';
-    }
-    if (localStorage.getItem('setGreeting')) {
-        sGreeting = localStorage.getItem('setGreeting');
-        document.getElementById('greeting-' + sGreeting).checked = true;
-        sGreeting == 'on' ? greetingContainer.style.display = 'flex' : greetingContainer.style.display = 'none';
-    }
-    if (localStorage.getItem('setQuote')) {
-        sQuote = localStorage.getItem('setQuote');
-        document.getElementById('quote-' + sQuote).checked = true;
-        sQuote == 'on' ? FooterQuote.style.display = 'block' : FooterQuote.style.display = 'none';
-    }
-    if (localStorage.getItem('setWeather')) {
-        sWeather = localStorage.getItem('setWeather');
-        document.getElementById('weather-' + sWeather).checked = true;
-        sWeather == 'on' ? weather.style.display = 'flex' : weather.style.display = 'none';
-    }
-    if (localStorage.getItem('setPlayer')) {
-        sPlayer = localStorage.getItem('setPlayer');
-        sWeather = localStorage.getItem('setWeather');
-        document.getElementById('player-' + sPlayer).checked = true;
-        sPlayer == 'on' ? player.style.display = 'block' : player.style.display = 'none';
-        sPlayer == 'off' &&  sWeather == 'on' ? header.style.justifyContent = 'end' : header.style.justifyContent = 'space-between';
-    }
-    if (localStorage.getItem('setLinks')) {
-        sLinks = localStorage.getItem('setLinks');
-        document.getElementById('links-' + sLinks).checked = true;
-        sLinks == 'on' ? linksBtn.style.display = 'block' : linksBtn.style.display = 'none';
-    }
 }
 window.addEventListener('load', getLocalStorage);
 
@@ -217,11 +236,33 @@ function getRandomNum(min, max) {
 }
 getRandomNum(1,20);
 
-function setBg() {
+async function getImageFromUp(tags) {
+    const url = 'https://api.unsplash.com/photos/random?query=' + tags + '&client_id=QZobZsuqRFPw0qVX3lMILizhrXbCJyB9wGhsa_-LM50';
+    const res = await fetch(url);
+    const data = await res.json();
+    return data.urls.regular;
+}
+
+async function getImageFromFlickr(tags,num) {
+    const url = 'https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=e4dc0050658d4309d9e328907f5fffc6&tags=' + tags + '&extras=url_l&format=json&nojsoncallback=1';
+    const res = await fetch(url);
+    const data = await res.json();
+    return data.photos.photo[num].url_l;
+}
+
+async function setBg() {
     let timeOfDay = getTimeOfDay();
     let bgNum = String(randomNum).padStart(2, "0");
     const img = new Image();
-    img.src = "https://raw.githubusercontent.com/teplokotov/stage1-tasks/assets/images/" + timeOfDay + "/" + bgNum + ".jpg"; 
+    if(sSource == 'github') {
+        img.src = "https://raw.githubusercontent.com/teplokotov/stage1-tasks/assets/images/" + timeOfDay + "/" + bgNum + ".jpg"; 
+    }
+    if (sSource == 'unsplash') {
+        img.src = await getImageFromUp(sTags);
+    }
+    if (sSource == 'flickr') {
+        img.src = await getImageFromFlickr(sTags,randomNum);
+    }
     img.onload = () => {      
         body.style.backgroundImage = "url('" + img.src + "')";
     }; 
@@ -399,6 +440,14 @@ setInterval(() => {
     sLang = Array.from(radioLang).filter(node => node.checked).map(node => node.value).pop();
     if (localStorage.getItem('setLang', sLang) != sLang) {
         localStorage.setItem('setLang', sLang);
+        InputName.placeholder = lang[sLang].placeholder.name;
+        InputCity.placeholder = lang[sLang].placeholder.city;
+        if (InputCity.value == 'Минск' && sLang == 'en') {
+            InputCity.value = 'Minsk';
+        }
+        if (InputCity.value == 'Minsk' && sLang == 'ru') {
+            InputCity.value = 'Минск';
+        }
         insertTranslation();
         getWeather();
         getQuotes();
@@ -453,6 +502,25 @@ setInterval(() => {
     if (localStorage.getItem('setLinks', sLinks) != sLinks) {
         localStorage.setItem('setLinks', sLinks);
         sLinks == 'on' ? linksBtn.style.display = 'block' : linksBtn.style.display = 'none';
+    }
+
+    radioSource = document.getElementsByName('radio-source');
+    sSource = Array.from(radioSource).filter(node => node.checked).map(node => node.value).pop();
+    if (localStorage.getItem('setSource', sSource) != sSource) {
+        if (sSource == 'github') {
+            areaTags.style.display = 'none';
+        } else {
+            areaTags.style.display = 'flex';
+        }
+        localStorage.setItem('setSource', sSource);
+        setBg();
+    }
+
+    radioTags = document.getElementsByName('radio-tag');
+    sTags = Array.from(radioTags).filter(node => node.checked).map(node => node.value).pop();
+    if (localStorage.getItem('setTags', sTags) != sTags) {
+        localStorage.setItem('setTags', sTags);
+        setBg();
     }
 }, 100);
 
