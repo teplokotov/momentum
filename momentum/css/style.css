@@ -732,6 +732,9 @@ body {
     padding: 15px 0;
     flex-direction: column;
   }
+  .area-tags label {
+    font-size: 14px;
+  }
   .area-title{
     padding-bottom: 10px;
   }
