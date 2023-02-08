@@ -413,7 +413,7 @@ body {
   text-decoration: underline;
 }
 
-.dialogOfSettings {
+.dialogOfSettings, .dialogOfLinks {
   min-width: 450px;
   position: absolute;
   bottom:  70px;
@@ -423,23 +423,65 @@ body {
   border: none;
   border-radius: 10px;
   overflow: hidden;
-  z-index: 0;
+  z-index: -1;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
 
-.dialogOfSettings.show {
+.dialogOfLinks {
+  min-width: 350px;
+}
+
+.link-name, .link-url {
+  height: 30px;
+  width: 100%;
+  margin-left: 20px;
+  border-radius: 5px;
+  border: 1px solid #999;
+  outline: none;
+  padding: 0 10px;
+}
+
+.saveBtn, .deleteBtn {
+  border: 1px solid #999;
+  border-radius: 6px;
+  background: rgb(214, 214, 214);
+  font-size: 16px;
+  line-height: 34px;
+  padding: 0px 15px;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.saveBtn.nosave {
+  cursor: not-allowed;
+}
+
+.deleteBtn {
+  display: none;
+}
+
+.deleteBtn.show {
+  display: block;
+}
+
+.saveBtn:hover, .deleteBtn:hover {
+  background: linear-gradient(rgba(214, 214, 214, 0), rgba(255, 255, 255, 0.37));
+}
+
+.dialogOfSettings.show, .dialogOfLinks.show {
   opacity: 1;
   z-index: 2;
   transition: opacity 0.2s ease-in-out;
 }
 
-.dialogOfSettings ::-webkit-scrollbar {
+.dialogOfSettings ::-webkit-scrollbar, .dialogOfLinks ::-webkit-scrollbar {
   width: 13px;
 	height: 13px;
 }
 
-.dialogOfSettings ::-webkit-scrollbar-thumb {
+.dialogOfSettings ::-webkit-scrollbar-thumb, .dialogOfLinks ::-webkit-scrollbar-thumb {
   background-color: rgba(136, 136, 136, 0.8);
   background-clip: padding-box;
   border-radius: 7px;
@@ -477,9 +519,46 @@ body {
   display: flex;
 }
 
+.title-link, .title-link:visited, .title-link:active {
+  text-decoration: none;
+  color: #5B5B5B;
+}
+
 .dialog-body {
   overflow-y: auto;
-  height: 500px;
+  max-height: 500px;
+}
+
+.dialog-list-body {
+  overflow-y: auto;
+  max-height: 500px;
+  display: none;
+}
+
+.dialog-list-body.show {
+  display: block;
+}
+
+.edit-link-body {
+  display: none;
+}
+
+.edit-link-body.show {
+  display: flex;
+  flex-direction: column;
+}
+
+.link-area {
+  display: flex;
+  justify-content: center;
+  padding: 15px 30px;
+  align-items: center;
+  border-bottom: 1px solid rgb(153, 153, 153);
+}
+
+.set-link-title-name, .set-link-title-url {
+  width: 100px;
+  text-align: left;
 }
 
 .radioGroup {
@@ -545,7 +624,30 @@ body {
   height: 30px;
 }
 
-.close-button:hover {
+.add-button {
+  position: absolute;
+  left: 20px;
+  top: 7.5px;
+  cursor: pointer;
+  background-image: url(../assets/svg/addBtn.svg);
+  background-size: contain;
+  width: 25px;
+  height: 25px;
+}
+
+.add-button.back {
+  background-image: url(../assets/svg/backBtn.svg);
+}
+
+.edit-link-button {
+  cursor: pointer;
+  background-image: url(../assets/svg/editBtn.svg);
+  background-size: contain;
+  width: 25px;
+  height: 25px;
+}
+
+.close-button:hover, .add-button:hover, .edit-link-button:hover, .title-link:hover {
   opacity: 0.6;
 }
 
@@ -568,5 +670,69 @@ body {
   .name {
     font-size: 32px;
     padding: 5px;
+  }
+}
+
+@media (max-width: 767px) {
+  .dialogOfSettings {
+    min-width: 0;
+    width: 280px;
+  }
+  .dialogOfLinks {
+    min-width: 0;
+    width: 280px;
+  }
+  .header {
+    flex-wrap: wrap;
+    height: 100%;
+  }
+  .player{
+    width: 100%;
+    border-bottom: 1px solid rgb(255 255 255 / 50%);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  .weather {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  .volume-slider {
+    width: 95%;
+  }
+  .greeting-container{
+    flex-direction: column;
+  }
+  .greeting {
+    font-size: 26px;
+  }
+  .name {
+    font-size: 20px;
+    text-align: center;
+  }
+  .time {
+    font-size: 50px;
+    min-height: 0;
+  }
+  .date {
+    font-size: 16px;
+  }
+  .footer {
+    height: 300px;
+  }
+  .footer-quote {
+    position: absolute;
+    bottom: 140px;
+    left: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    z-index: 1;
+  }
+  .dialogOfSettings .area {
+    padding: 15px 0;
+    flex-direction: column;
+  }
+  .area-title{
+    padding-bottom: 10px;
   }
 }

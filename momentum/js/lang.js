@@ -40,6 +40,12 @@ const lang = {
             weather: "Weather",
             player: "Audio player",
             links: "Links"
+        },
+        links: {
+            name: "Name",
+            link: "Link",
+            save: "Save",
+            delete: "Delete"
         }
     },
     ru: {
@@ -83,6 +89,12 @@ const lang = {
             weather: "Погода",
             player: "Аудиоплеер",
             links: "Ссылки",
+        },
+        links: {
+            name: "Название",
+            link: "Адрес",
+            save: "Сохранить",
+            delete: "Удалить"
         }
     }
 };
