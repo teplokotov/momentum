@@ -192,6 +192,7 @@ function insertTranslation() {
 }
 
 function showTime() {
+    const date = new Date();
     const currentTime = date.toLocaleTimeString();
     time.textContent = currentTime;
     showDate();
